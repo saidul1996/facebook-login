@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FacebookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+route::get('auth/facebook', [FacebookController::class, 'facebookpage']);
+route::get('auth/facebook/callback', [FacebookController::class, 'facebookredirect']);
