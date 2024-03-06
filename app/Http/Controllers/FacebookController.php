@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 class FacebookController extends Controller
@@ -27,7 +28,7 @@ class FacebookController extends Controller
                     'email' => $user->email,
                     'name' => $user->name,
                     'facebook_id' => $user->id,
-                    'password' => encrypt('12345678dummy')
+                    'password' => Hash::make('12345678')
                 ]);
                 Auth::login($newUser);
                 return redirect()->intended('dashboard');
