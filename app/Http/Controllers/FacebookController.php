@@ -34,8 +34,8 @@ class FacebookController extends Controller
                 return redirect()->intended('dashboard');
             }
         } catch (\Throwable $th) {
-            //throw $th;
-            dd($th);
+            throw $th;
+            // dd($th);
         }
     }
 }
